@@ -1,0 +1,983 @@
+<html lang="en"
+    style="--status-bar-height: 0px; --top-window-height: 0px; --window-left: 0px; --window-right: 0px; --window-margin: 0px; --window-bottom: 0px; --window-top: calc(var(--top-window-height) + 0px);">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Digit Giesek</title>
+    <link rel="stylesheet" href="static/index.2da1efab.css">
+    <link rel="icon" href="static/favicon.png">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+
+    <style type="text/css">
+        html {
+            max-width: 960px;
+            margin: 0 auto
+        }
+
+        * {
+            font-family: Regular
+        }
+
+        .Bold {
+            font-weight: 700
+        }
+
+        .Regular {
+            font-weight: 400
+        }
+
+        .innerBox90 {
+            width: 90%;
+            margin: auto
+        }
+
+        .colorBule {
+            color: #3280f6
+        }
+
+        .radius30 {
+            border-radius: 16px;
+            overflow: hidden
+        }
+
+        .radius20 {
+            border-radius: 10px;
+            overflow: hidden
+        }
+
+        uni-toast {
+            z-index: 999999
+        }
+
+        .redTxt {
+            color: #e92a2a
+        }
+
+        .blueTxt {
+            color: #5b99fe
+        }
+
+        .grayTxt {
+            color: #2d3132
+        }
+
+        .call-us {
+            width: 80px;
+            height: 32px;
+            background-color: pink;
+            border-radius: 25px 25px 25px 25px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .call-us uni-image {
+            width: 17px;
+            height: 17px;
+            margin-right: 3px
+        }
+
+        .logins {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: #2d3132;
+            background: url(static/page.png) no-repeat top #000;
+            background-size: 100% auto;
+            padding-bottom: constant(safe-area-inset-bottom);
+            /* // 兼容 IOS<11.2 */
+            padding-bottom: env(safe-area-inset-bottom)
+                /* // 兼容 IOS>11.2 */
+        }
+
+        .pages {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #2d3132;
+            background: url(static/bgi.png) no-repeat top #000;
+            background-size: 100% auto;
+            padding-bottom: constant(safe-area-inset-bottom);
+            /* // 兼容 IOS<11.2 */
+            padding-bottom: env(safe-area-inset-bottom)
+                /* // 兼容 IOS>11.2 */
+        }
+
+        .noData {
+            text-align: center;
+            color: #fff;
+            width: 100%;
+            font-size: 13px;
+            margin-top: 53px;
+            margin: auto;
+            zoom: .8
+        }
+
+        .status_bar {
+            width: 100%;
+            height: 94px
+        }
+
+        .tab_bar {
+            width: 100%;
+            height: 96px
+        }
+
+        .buttons {
+            width: 345px;
+            height: 48px;
+            background: #257cff;
+            border: 1px solid #fff;
+            border-radius: 32px 32px 32px 32px;
+            margin: 10px auto;
+            line-height: 48px;
+            font-weight: 600;
+            font-size: 19px;
+            color: #fff;
+            text-align: center
+        }
+
+        .unButtons {
+            opacity: .8;
+            pointer-events: none
+        }
+
+        .uni-tabbar {
+            padding-bottom: 16px !important
+        }
+
+        .auto80 {
+            margin: auto;
+            width: 339px
+        }
+
+        .auto90 {
+            margin: auto;
+            width: 371px
+        }
+
+        .flexAround {
+            display: flex;
+            justify-content: space-around;
+            align-items: center
+        }
+
+        .flexBetween {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .flexStart {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center
+        }
+
+        .flexWrap {
+            flex-wrap: wrap
+        }
+
+        .flexColumn {
+            flex-direction: column;
+            white-space: nowrap
+        }
+    </style>
+    <style type="text/css">
+        @charset "UTF-8";
+
+        /**
+         * 这里是uni-app内置的常用样式变量
+         *
+         * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+         * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+         *
+         */
+        /**
+         * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+         *
+         * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+         */
+        /* 颜色变量 */
+        /* 行为相关颜色 */
+        /* 文字基本颜色 */
+        /* 背景颜色 */
+        /* 边框颜色 */
+        /* 尺寸变量 */
+        /* 文字尺寸 */
+        /* 图片尺寸 */
+        /* Border Radius */
+        /* 水平间距 */
+        /* 垂直间距 */
+        /* 透明度 */
+        /* 文章场景相关 */
+        .bar[data-v-40bdd376] {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2
+        }
+
+        .black .title[data-v-40bdd376],
+        .black .back[data-v-40bdd376] {
+            color: #23427b
+        }
+
+        .white .title[data-v-40bdd376],
+        .white .back[data-v-40bdd376] {
+            color: #fff
+        }
+
+        .status_bars[data-v-40bdd376] {
+            width: 100%;
+            height: 47px;
+            line-height: 47px
+        }
+
+        .backBar[data-v-40bdd376] {
+            width: 371px;
+            margin-left: 16px
+        }
+
+        .backBar .lineBox[data-v-40bdd376] {
+            width: 100%;
+            height: 47px;
+            line-height: 47px
+        }
+
+        .backBar .lineBox .back[data-v-40bdd376] {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .backBar .lineBox .back uni-image[data-v-40bdd376] {
+            width: 25px
+        }
+
+        .backBar .lineBox .title[data-v-40bdd376] {
+            text-align: center;
+            font-weight: 600;
+            font-size: 22px;
+            white-space: nowrap
+        }
+
+        .backBar .lineBox .ke[data-v-40bdd376] {
+            width: 32px
+        }
+
+        .backBar .lineBox .more[data-v-40bdd376] {
+            width: 25px;
+            height: 25px;
+            color: #162645;
+            font-size: 12px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center
+        }
+
+        .backBar .lineBox .more uni-image[data-v-40bdd376] {
+            width: 25px;
+            height: 25px
+        }
+    </style>
+    <style type="text/css">
+        @charset "UTF-8";
+
+        /**
+         * 这里是uni-app内置的常用样式变量
+         *
+         * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+         * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+         *
+         */
+        /**
+         * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+         *
+         * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+         */
+        /* 颜色变量 */
+        /* 行为相关颜色 */
+        /* 文字基本颜色 */
+        /* 背景颜色 */
+        /* 边框颜色 */
+        /* 尺寸变量 */
+        /* 文字尺寸 */
+        /* 图片尺寸 */
+        /* Border Radius */
+        /* 水平间距 */
+        /* 垂直间距 */
+        /* 透明度 */
+        /* 文章场景相关 */
+        .uni-popup[data-v-3193bb52] {
+            position: fixed;
+            z-index: 99
+        }
+
+        .uni-popup.top[data-v-3193bb52],
+        .uni-popup.left[data-v-3193bb52],
+        .uni-popup.right[data-v-3193bb52] {
+            top: var(--window-top)
+        }
+
+        .uni-popup .uni-popup__wrapper[data-v-3193bb52] {
+            display: block;
+            position: relative
+                /* iphonex 等安全区设置，底部安全区适配 */
+        }
+
+        .uni-popup .uni-popup__wrapper.left[data-v-3193bb52],
+        .uni-popup .uni-popup__wrapper.right[data-v-3193bb52] {
+            padding-top: var(--window-top);
+            flex: 1
+        }
+
+        .fixforpc-z-index[data-v-3193bb52] {
+            z-index: 999
+        }
+
+        .fixforpc-top[data-v-3193bb52] {
+            top: 0
+        }
+    </style>
+    <style type="text/css">
+        @charset "UTF-8";
+
+        /**
+         * 这里是uni-app内置的常用样式变量
+         *
+         * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+         * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+         *
+         */
+        /**
+         * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+         *
+         * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+         */
+        /* 颜色变量 */
+        /* 行为相关颜色 */
+        /* 文字基本颜色 */
+        /* 背景颜色 */
+        /* 边框颜色 */
+        /* 尺寸变量 */
+        /* 文字尺寸 */
+        /* 图片尺寸 */
+        /* Border Radius */
+        /* 水平间距 */
+        /* 垂直间距 */
+        /* 透明度 */
+        /* 文章场景相关 */
+        .my-loading-pop[data-v-1544a802] {
+            width: 107px;
+            height: 107px
+        }
+
+        .my-loading-pop uni-image[data-v-1544a802] {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+    <style type="text/css">
+        .uni-app--showtabbar uni-page-wrapper {
+            display: block;
+            height: calc(100% - 50px);
+            height: calc(100% - 50px - constant(safe-area-inset-bottom));
+            height: calc(100% - 50px - env(safe-area-inset-bottom));
+        }
+
+        .uni-app--showtabbar uni-page-wrapper::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 50px;
+            height: calc(50px + constant(safe-area-inset-bottom));
+            height: calc(50px + env(safe-area-inset-bottom));
+        }
+
+        .uni-app--showtabbar uni-page-head[uni-page-head-type="default"]~uni-page-wrapper {
+            height: calc(100% - 44px - 50px);
+            height: calc(100% - 44px - constant(safe-area-inset-top) - 50px - constant(safe-area-inset-bottom));
+            height: calc(100% - 44px - env(safe-area-inset-top) - 50px - env(safe-area-inset-bottom));
+        }
+
+        .pages[data-v-4ddc5041] {
+            width: 404px;
+            height: 874px
+        }
+
+        .box-show[data-v-4ddc5041] {
+            width: 371px;
+            height: 193px;
+            background: linear-gradient(180deg, #257cff, rgba(43, 104, 195, .6));
+            border-radius: 12px 12px 12px 12px;
+            margin: 9px auto 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 0
+        }
+
+        .box-show>uni-view[data-v-4ddc5041]:nth-of-type(1) {
+            width: 344px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .box-show>uni-view:nth-of-type(1)>uni-view[data-v-4ddc5041]:nth-of-type(1) {
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff;
+            display: flex;
+            align-items: center
+        }
+
+        .box-show>uni-view:nth-of-type(1)>uni-view:nth-of-type(1) uni-image[data-v-4ddc5041] {
+            width: 48px;
+            height: 48px;
+            margin-right: 9px
+        }
+
+        .box-show>uni-view:nth-of-type(1) .btn[data-v-4ddc5041] {
+            text-align: center;
+            width: 113px;
+            height: 38px;
+            line-height: 38px;
+            background: #fd5b02;
+            border-radius: 32px 32px 32px 32px;
+            border: 1px solid #fff;
+            font-weight: 600;
+            font-size: 19px;
+            color: #fff
+        }
+
+        .box-show>uni-image[data-v-4ddc5041] {
+            margin-top: 9px;
+            width: 48px;
+            height: 48px;
+            margin-bottom: 6px
+        }
+
+        .box-show .bannerShow[data-v-4ddc5041] {
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
+        }
+
+        .box-show .bannerShow .Account[data-v-4ddc5041] {
+            font-weight: 600;
+            font-size: 32px;
+            color: #fff
+        }
+
+        .box-show .bannerShow .balance[data-v-4ddc5041] {
+            font-weight: 300;
+            font-size: 16px;
+            color: #9d9d9d;
+            margin-top: 1px
+        }
+
+        .amount[data-v-4ddc5041] {
+            font-size: 16px;
+            position: relative;
+            z-index: 2;
+            padding-bottom: 17px;
+            width: 371px;
+            margin-top: 12px
+        }
+
+        .amount .boxBox[data-v-4ddc5041] {
+            flex-wrap: wrap;
+            width: 371px;
+            margin: 13px auto 0
+        }
+
+        .amount .boxBox .boxItem[data-v-4ddc5041] {
+            text-align: center;
+            margin-bottom: 9px;
+            width: 115px;
+            height: 86px;
+            background: #242644;
+            border: 1px solid #242644;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #9d9d9d;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center
+        }
+
+        .amount .boxBox .boxItem uni-image[data-v-4ddc5041] {
+            width: 25px;
+            height: 25px;
+            margin-bottom: 6px
+        }
+
+        .amount .boxBox .boxHide[data-v-4ddc5041] {
+            opacity: 0
+        }
+
+        .amount .boxBox .light[data-v-4ddc5041] {
+            color: #257cff;
+            background: #0a2741;
+            border-radius: 12px 12px 12px 12px;
+            border: 1px solid #257cff
+        }
+
+        .box[data-v-4ddc5041] {
+            background: #242644;
+            width: 371px;
+            margin: auto;
+            height: 48px;
+            box-shadow: 0px 4px 16px 0px rgba(20, 20, 20, .03);
+            border-radius: 9px 9px 9px 9px
+        }
+
+        .box uni-view[data-v-4ddc5041] {
+            height: 48px;
+            line-height: 48px;
+            color: #257cff;
+            width: 43px;
+            font-size: 25px;
+            text-align: center;
+            font-weight: 900
+        }
+
+        .box uni-input[data-v-4ddc5041] {
+            color: #fff;
+            font-weight: 600;
+            font-size: 19px;
+            text-indent: 13px
+        }
+
+        .box .Ptxt[data-v-4ddc5041] {
+            color: #9d9d9d;
+            font-size: 16px
+        }
+
+        .title[data-v-4ddc5041] {
+            font-weight: 400;
+            font-size: 12px;
+            color: #999;
+            font-weight: 600;
+            width: 371px;
+            margin: 9px auto 6px
+        }
+
+        .boxBottom[data-v-4ddc5041] {
+            border-radius: 32px;
+            width: 371px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff
+        }
+
+        .boxBottom .boxW[data-v-4ddc5041] {
+            margin-top: 9px
+        }
+
+        .boxBottom .boxW .Prompt[data-v-4ddc5041] {
+            font-size: 16px;
+            width: 100%;
+            margin: auto;
+            font-weight: 400;
+            font-size: 12px;
+            color: #666
+        }
+
+        .btns[data-v-4ddc5041] {
+            margin: auto;
+            margin-top: 19px;
+            width: 100%
+        }
+
+        .buttonBox[data-v-4ddc5041] {
+            color: #162645;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap
+        }
+
+        .buttonBox .button[data-v-4ddc5041] {
+            width: 115px;
+            height: 48px;
+            background: #242644;
+            border-radius: 12px;
+            border: 1px solid #242644;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 48px;
+            margin-bottom: 9px;
+            color: #9d9d9d;
+            text-align: center
+        }
+
+        .buttonBox .choose[data-v-4ddc5041] {
+            width: 115px;
+            height: 48px;
+            background: #0a2741;
+            color: #257cff;
+            border-radius: 12px;
+            border: 1px solid #257cff
+        }
+    </style>
+
+    <style type="text/css">
+        .uni-app--showtabbar uni-page-wrapper {
+            display: block;
+            height: calc(100% - 50px);
+            height: calc(100% - 50px - constant(safe-area-inset-bottom));
+            height: calc(100% - 50px - env(safe-area-inset-bottom));
+        }
+
+        .uni-app--showtabbar uni-page-wrapper::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 50px;
+            height: calc(50px + constant(safe-area-inset-bottom));
+            height: calc(50px + env(safe-area-inset-bottom));
+        }
+
+        .uni-app--showtabbar uni-page-head[uni-page-head-type="default"]~uni-page-wrapper {
+            height: calc(100% - 44px - 50px);
+            height: calc(100% - 44px - constant(safe-area-inset-top) - 50px - constant(safe-area-inset-bottom));
+            height: calc(100% - 44px - env(safe-area-inset-top) - 50px - env(safe-area-inset-bottom));
+        }
+    </style>
+    <style type="text/css">
+        @charset "UTF-8";
+
+        /**
+         * 这里是uni-app内置的常用样式变量
+         *
+         * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+         * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+         *
+         */
+        /**
+         * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+         *
+         * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+         */
+        /* 颜色变量 */
+        /* 行为相关颜色 */
+        /* 文字基本颜色 */
+        /* 背景颜色 */
+        /* 边框颜色 */
+        /* 尺寸变量 */
+        /* 文字尺寸 */
+        /* 图片尺寸 */
+        /* Border Radius */
+        /* 水平间距 */
+        /* 垂直间距 */
+        /* 透明度 */
+        /* 文章场景相关 */
+        .pages[data-v-418d1052] {
+            width: 100%;
+            height: 100%
+        }
+
+        .service[data-v-418d1052] {
+            position: absolute;
+            width: 100%;
+            overflow-y: scroll;
+            top: 0;
+            color: #2d3132
+        }
+
+        .service .lineBox[data-v-418d1052] {
+            height: 47px;
+            line-height: 47px
+        }
+
+        .service .lineBox .back[data-v-418d1052] {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .service .lineBox .back uni-image[data-v-418d1052] {
+            width: 25px;
+            height: 25px
+        }
+
+        .service .lineBox .title[data-v-418d1052] {
+            width: 40%;
+            text-align: center;
+            white-space: nowrap;
+            font-weight: 600;
+            font-size: 22px;
+            color: #fff
+        }
+
+        .service .lineBox .more[data-v-418d1052] {
+            width: 32px;
+            height: 47px
+        }
+
+        .service .cotact-us-list[data-v-418d1052] {
+            width: 371px;
+            margin: 9px auto
+        }
+
+        .service .cotact-us-list .boxBlue[data-v-418d1052] {
+            width: 371px;
+            height: 161px;
+            margin: 0 auto 12px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: url(static/ke.png) no-repeat 100% 100%
+        }
+
+        .service .cotact-us-list .boxBlue uni-view[data-v-418d1052] {
+            font-weight: 600;
+            font-size: 19px;
+            width: 242px;
+            color: #fff;
+            padding-left: 10px
+        }
+
+        .service .cotact-us-list .cotact-us-title[data-v-418d1052] {
+            width: 371px;
+            background: #242644;
+            border-radius: 9px 9px 9px 9px;
+            font-size: 12px;
+            padding-bottom: 32px
+        }
+
+        .service .cotact-us-list .cotact-us-title>uni-view[data-v-418d1052] {
+            width: 345px
+        }
+
+        .service .cotact-us-list .cotact-us-title .a[data-v-418d1052] {
+            font-family: Segoe UI;
+            font-weight: 600;
+            font-size: 19px;
+            color: #fff;
+            padding-top: 12px
+        }
+
+        .service .cotact-us-list .cotact-us-title .b[data-v-418d1052] {
+            font-family: Segoe UI;
+            line-height: 18px;
+            font-weight: 400;
+            padding-top: 6px;
+            font-size: 16px;
+            font-size: 16px;
+            color: #9d9d9d
+        }
+
+        .service .cotact-us-list .cotact-us-box[data-v-418d1052] {
+            display: flex;
+            align-items: center;
+            width: 345px;
+            height: 64px;
+            border-radius: 12px;
+            border: 1px solid #334a85;
+            font-size: 12px;
+            margin: auto;
+            position: relative;
+            margin-top: 16px
+        }
+
+        .service .cotact-us-list .cotact-us-box .line[data-v-418d1052] {
+            width: 1px;
+            height: 32px;
+            background: rgba(0, 0, 0, .2)
+        }
+
+        .service .cotact-us-list .cotact-us-box>uni-view[data-v-418d1052]:nth-child(1) {
+            width: 38px;
+            height: 38px;
+            margin: 0 16px;
+            color: #fff
+        }
+
+        .service .cotact-us-list .cotact-us-box>uni-view:nth-child(1) uni-image[data-v-418d1052] {
+            width: 38px;
+            height: 38px
+        }
+
+        .service .cotact-us-list .cotact-us-box .center[data-v-418d1052] {
+            flex: 1;
+            width: 184px
+        }
+
+        .service .cotact-us-list .cotact-us-box .center>uni-view[data-v-418d1052]:nth-child(1) {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600
+        }
+
+        .service .cotact-us-list .cotact-us-box .center>uni-view[data-v-418d1052]:nth-child(2) {
+            color: #9d9d9d;
+            font-size: 16px;
+            margin-top: 8px;
+            display: flex
+        }
+
+        .service .cotact-us-list .cotact-us-box .center>uni-view:nth-child(2) .txt[data-v-418d1052] {
+            max-width: 177px;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        .service .cotact-us-list .cotact-us-box .center>uni-view:nth-child(2) .copy[data-v-418d1052] {
+            width: 15px;
+            height: 15px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABm0lEQVQ4T63Tv6uOcRjH8ddnEMqv1eJnJhbRiZSByaBIyohBrMpgcAYGf4FfJVYny0mShGxESgwWEZNIIiWRS9/T8zzdPed5TmfwXe677s/3fX+uz3Vd8Z9O+pyqOoYTWDEH+w0mkzwe1syAquoIrmEK78aAmnY3NmJTkrddXR/0FO+THJyr0qpahA+4nGRyFKi5uJHkdM/herT39hw+W/EdT3Alyb0m6DsagKpqJV7hB2Zl0aG2n2zB/iS3RoGak1PNTZKv40qtqnb3LhYn2TkKdBHbk2zudHQhXuJwt2NVdR6HkqwdBbqEbUOgNhLNXbvUOjtz5g2qqmVomS3FM5zEHXxL8nEUqM3EVOtaVQ0cVdX93uwMR/UHy3FmuLRH+IU9uNAvrarWYDWW4DbO4mHraJLnoxztxTReoJXThN2w55dRL7hdOI4d+DQEahP9GfuSPBgbdjeAqmr22/KuSvKzc2lBkt9D2put9CQTg+3vXFjXm5nXvTz+jhnKDTiAo0muzwL1ypzAOTTxSA2+9Jb36mDX5tr4+X77Bz5czRNT761GAAAAAElFTkSuQmCC) no-repeat top;
+            background-size: 100% auto;
+            margin-left: 5px;
+            position: relative;
+            top: 2px
+        }
+
+        .service .cotact-us-list .cotact-us-box .right[data-v-418d1052] {
+            height: 25px;
+            line-height: 25px;
+            position: absolute;
+            right: 10px;
+            top: 16px
+        }
+
+        .service .cotact-us-list .cotact-us-box .right uni-image[data-v-418d1052] {
+            width: 25px;
+            height: 25px
+        }
+
+        .service .txtGray[data-v-418d1052] {
+            width: 371px;
+            margin: auto;
+            font-size: 12px;
+            font-family: Poppins;
+            font-weight: 400;
+            color: #445a64;
+            line-height: 21px
+        }
+
+        .service .lineBoxs[data-v-418d1052] {
+            width: 371px;
+            height: 1px;
+            background: #e9e9e9;
+            margin: 19px auto
+        }
+
+        .service .titles[data-v-418d1052] {
+            font-size: 16px;
+            color: #162645;
+            text-align: left;
+            white-space: nowrap;
+            padding: 10px 0
+        }
+    </style>
+</head>
+
+<body class="uni-body pages-mine-Service" style="overflow: visible;">
+    <uni-app class="uni-app--maxwidth">
+        <uni-page>
+            <uni-page-wrapper>
+                <uni-page-body>
+                    <uni-view data-v-418d1052="" class="pages">
+                        <uni-view data-v-1544a802="" data-v-418d1052=""></uni-view>
+                        <uni-view data-v-418d1052="" class="service">
+                            <uni-view data-v-418d1052="" style="height: 47px;"></uni-view>
+                            <uni-view data-v-418d1052="" class="lineBox flexBetween auto90">
+                                <uni-view data-v-418d1052="" class="back" onclick="window.location.href='/home'">
+                                    <uni-image data-v-418d1052="" style="height: 26px;">
+                                        <div
+                                            style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABv0lEQVRIS7WUS6hNcRSHv0/yGHrlDogiJGOvgYEJZWRgYqZrYqCbgVIeJRMmt5uBR3kUAxNFlEcZm9yYmSCSDBhcGUhJ/bRPe2s7D2cf55xVu13/vdbvW2v9114yZnPM+jQCJFkB7FVvD5pQX0CSzcAjYA2wSv00COSfgCS7gbvAklJ0rfphJIAkh4ArwIKa4PCAJEVVZ4HTXTKdBl4As+qbJpX81aIki4DrwMEGwe+AO8BV9WMv/z+AJEWf7wO7GojXXX4Cl4GT6vf22BYgyWrgGbBhQPG6+2tgn/q2flgBjgIXhxCvQr8A29X31UEFKCZlBjgyAshLYJv6q9Bqv+TjwHlg3pCgKbXVkY4fLckB4BZQTFQ3+wx8BZaXTzefYoQ3qq2Z77AkO4CHwLK2j1vV2eosySZgCjgMzG/z3aK+6rkqkqwDngLFu7Kuf3KZ0D1gZc13Ur3RbxctLSvZWQb2XBVJihF/Xqv6nHqmyTZdCNwE9gMT6rdeA5BkD/C4vNsZ9VhfQK3fi9Uf/aYryTVgErignmgM6CdcS2QCKPbUKXV65IAClOQS8ER9MC7AemBOnRsLoGPZNe3v//j9BjjIhxlLzrroAAAAAElFTkSuQmCC); background-size: 100% 100%; background-repeat: no-repeat;">
+                                        </div>
+                                        <uni-resize-sensor>
+                                            <div>
+                                                <div></div>
+                                            </div>
+                                            <div>
+                                                <div></div>
+                                            </div>
+                                        </uni-resize-sensor>
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABv0lEQVRIS7WUS6hNcRSHv0/yGHrlDogiJGOvgYEJZWRgYqZrYqCbgVIeJRMmt5uBR3kUAxNFlEcZm9yYmSCSDBhcGUhJ/bRPe2s7D2cf55xVu13/vdbvW2v9114yZnPM+jQCJFkB7FVvD5pQX0CSzcAjYA2wSv00COSfgCS7gbvAklJ0rfphJIAkh4ArwIKa4PCAJEVVZ4HTXTKdBl4As+qbJpX81aIki4DrwMEGwe+AO8BV9WMv/z+AJEWf7wO7GojXXX4Cl4GT6vf22BYgyWrgGbBhQPG6+2tgn/q2flgBjgIXhxCvQr8A29X31UEFKCZlBjgyAshLYJv6q9Bqv+TjwHlg3pCgKbXVkY4fLckB4BZQTFQ3+wx8BZaXTzefYoQ3qq2Z77AkO4CHwLK2j1vV2eosySZgCjgMzG/z3aK+6rkqkqwDngLFu7Kuf3KZ0D1gZc13Ur3RbxctLSvZWQb2XBVJihF/Xqv6nHqmyTZdCNwE9gMT6rdeA5BkD/C4vNsZ9VhfQK3fi9Uf/aYryTVgErignmgM6CdcS2QCKPbUKXV65IAClOQS8ER9MC7AemBOnRsLoGPZNe3v//j9BjjIhxlLzrroAAAAAElFTkSuQmCC"
+                                            draggable="false">
+                                    </uni-image>
+                                </uni-view>
+                                <uni-view data-v-418d1052="" class="title Bold">service</uni-view>
+                                <uni-view data-v-418d1052="" class="more"></uni-view>
+                            </uni-view>
+                            <uni-view data-v-418d1052="" class="cotact-us-list ">
+                                <uni-view data-v-418d1052="" class="boxBlue"></uni-view>
+                                <uni-view data-v-418d1052="" class="cotact-us-title auto90">
+                                    <uni-view data-v-418d1052="" class="auto90">
+                                        <uni-view data-v-418d1052="" class="a">24-hour expert service</uni-view>
+                                        <uni-view data-v-418d1052="" class="b">Whether you're a high- or low-volume
+                                            user,
+                                            you'll receive first-classsupport tailored to your needs.
+                                        </uni-view>
+                                    </uni-view>
+                                    <uni-view data-v-418d1052="" class="cotact-us-box auto90">
+                                        <uni-view data-v-418d1052="">
+                                            <uni-image data-v-418d1052="">
+                                                <div
+                                                    style="background-image: url(static/telegram.png); background-position: 0% 0%; background-size: 100% 100%; background-repeat: no-repeat;">
+                                                </div>
+                                                <img src="static/telegram.png" draggable="false">
+                                            </uni-image>
+                                        </uni-view>
+                                        <uni-view data-v-418d1052="" class="line"></uni-view>
+                                        <uni-view data-v-418d1052="" class="center">
+                                            <uni-view data-v-418d1052="" class="Blod">Telegram Channel</uni-view>
+                                            <uni-view data-v-418d1052="">
+                                                <uni-view data-v-418d1052=""
+                                                    class="txt">https://t.me/DigitGiesek</uni-view>
+                                                <uni-view data-v-418d1052="" class="copy"></uni-view>
+                                            </uni-view>
+                                        </uni-view>
+                                        <uni-view data-v-418d1052="" class="right">
+                                            <uni-image data-v-418d1052="" style="height: 26px;">
+                                                <div
+                                                    style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJ5SURBVHgB1ZrtcdswDIZf9fy/HoHdIJkgygbJBHUmcDqBlQnqTuB2g3SCuBMkG1gbOJ0AAY7KnaJPiCJF5rnD6Y6WZbwWSICCMgxARGs+3LNdseWIS8l2ZHvIsqwcPZudN2zPlCbFmPNrthOljUQGsh4Bez5skTavbN9aAsjG/Rk65CJldfSFqUxD0RphATeK23dgu0IgyIbwhsbD+Lnry7uBL5xCOt4j5OeAP2dMEHBmM4jAkIgvE65zr1p/w/AAO9daaAWU7PwfRIJ/WxaJu67PtAIKRIZFHNGx2mkF/EMaPDYHNAJep8Y+2TKkgH9emgMqAXBjF0DE/+bAquOkv/g44+dkWREh8VvgM1GFUJ0DPEA2OzvngTnID0tpvoZnlhIgXLA9+c7mSwoQvItYVfFp4JehUDGwIq59lCayCuXwL2AMAyvilkW8YAZLh1AdAyviAjOIKUCQUJPV6TsciS3gnd+uWTsVAZLtneZCCgKObJc8mR/hgKxC8nzFd4aU6+0V5+3Z8R9IjY5aqMmJHB4OxKyF6hzZJIl52SQtLUAeDHjJwO+ssAwl28bXv16nJaBKKpvakGwpb+GOrC531ZMF73TdAYOPvYASbojDBTv+CwEJFULi/PXcQk1DEAFVuAR3XtCsQt63gTP42hxQCQixl3WkVXpr84BzueuZvDmgFXCDyEgZgY6do1ZATlVTLSK7rsEppcSO4jU4pLI12pO3I1VkjoUg22LaD/jT2WLSNvlmbcYVjm9pvMn31NdmPUG3/odIWAYT2qx9jW6ZMAXSRv68y75JLAVYibQpBvcVZLeFYzEYC/1rEGT3oSm8tSJ96gM1Fo83k6zVI3hGpFoAAAAASUVORK5CYII=); background-size: 100% 100%; background-repeat: no-repeat;">
+                                                </div>
+                                                <uni-resize-sensor>
+                                                    <div>
+                                                        <div></div>
+                                                    </div>
+                                                    <div>
+                                                        <div></div>
+                                                    </div>
+                                                </uni-resize-sensor>
+                                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJ5SURBVHgB1ZrtcdswDIZf9fy/HoHdIJkgygbJBHUmcDqBlQnqTuB2g3SCuBMkG1gbOJ0AAY7KnaJPiCJF5rnD6Y6WZbwWSICCMgxARGs+3LNdseWIS8l2ZHvIsqwcPZudN2zPlCbFmPNrthOljUQGsh4Bez5skTavbN9aAsjG/Rk65CJldfSFqUxD0RphATeK23dgu0IgyIbwhsbD+Lnry7uBL5xCOt4j5OeAP2dMEHBmM4jAkIgvE65zr1p/w/AAO9daaAWU7PwfRIJ/WxaJu67PtAIKRIZFHNGx2mkF/EMaPDYHNAJep8Y+2TKkgH9emgMqAXBjF0DE/+bAquOkv/g44+dkWREh8VvgM1GFUJ0DPEA2OzvngTnID0tpvoZnlhIgXLA9+c7mSwoQvItYVfFp4JehUDGwIq59lCayCuXwL2AMAyvilkW8YAZLh1AdAyviAjOIKUCQUJPV6TsciS3gnd+uWTsVAZLtneZCCgKObJc8mR/hgKxC8nzFd4aU6+0V5+3Z8R9IjY5aqMmJHB4OxKyF6hzZJIl52SQtLUAeDHjJwO+ssAwl28bXv16nJaBKKpvakGwpb+GOrC531ZMF73TdAYOPvYASbojDBTv+CwEJFULi/PXcQk1DEAFVuAR3XtCsQt63gTP42hxQCQixl3WkVXpr84BzueuZvDmgFXCDyEgZgY6do1ZATlVTLSK7rsEppcSO4jU4pLI12pO3I1VkjoUg22LaD/jT2WLSNvlmbcYVjm9pvMn31NdmPUG3/odIWAYT2qx9jW6ZMAXSRv68y75JLAVYibQpBvcVZLeFYzEYC/1rEGT3oSm8tSJ96gM1Fo83k6zVI3hGpFoAAAAASUVORK5CYII="
+                                                    draggable="false">
+                                            </uni-image>
+                                        </uni-view>
+                                    </uni-view>
+                                </uni-view>
+                            </uni-view>
+                        </uni-view>
+                    </uni-view>
+                </uni-page-body>
+            </uni-page-wrapper>
+        </uni-page>
+    </uni-app>
+</body>
+
+</html>
