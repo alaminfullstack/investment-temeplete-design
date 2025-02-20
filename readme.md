@@ -26,8 +26,18 @@ graph TB;
 ### Preview Design
 
 ![image info](./readme/login.png)
+
+#
 ![image info](./readme/register.png)
+
+#
 ![image info](./readme/mine.png)
+
+#
 ![image info](./readme/vip.png)
-![image info](./readme/team.png)
+
+#
+![image info](./readme/team.jpg)
+
+#
 ![image info](./readme/recharge.png)
